@@ -30,8 +30,11 @@ def get_allAboutUser():
     {'username': 'tellezalberto309', 'password': '*12345678*', 'active': 1, 'used': 0},
     {'username': 'luisdaniel11123', 'password': 'Test111.', 'active': 1, 'used': 0},
     {'username': 'maturanadaniela255', 'password': 'Test111.', 'active': 1, 'used': 0},
-    {'username': 'dortiz334455', 'password': 'Test111.', 'active': 1, 'used': 0}
-    ]
+    {'username': 'dortiz334455', 'password': 'Test111.', 'active': 1, 'used': 0},
+    {'username': 'elmarmaria192', 'password': 'Maria123*', 'active': 1, 'used': 0},
+    {'username': 'lucimurcia199', 'password': 'Lucimurcia123*', 'active': 1, 'used': 0},
+    {'username': 'macarbajala', 'password': 'MaesCar123*', 'active': 1, 'used': 0}
+     ]
     
     logging.info(f'getting perfil from {username}')
     wb = openpyxl.Workbook()
