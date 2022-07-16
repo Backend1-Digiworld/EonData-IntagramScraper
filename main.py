@@ -21,7 +21,7 @@ logging.basicConfig(
 
 @app.command()
 def get_allAboutUser():
-    username = 'noscogiolanochetv'
+    username = 'minuto30'
     acounts = [
     {'username': 'juancamilomastinez', 'password': 'Juancamar05', 'active': 1, 'used': 0},
     {'username': 'fopusimilazici', 'password': 'Chupameestepenco', 'active': 1, 'used': 0},
@@ -39,20 +39,24 @@ def get_allAboutUser():
     wb = perfil[0]
     acounts = perfil[1]
     
-    logging.info(f'getting posts from {username}')
-    post = con.posts(username, wb, acounts)
-    wb = post[0]
-    posts = post[1]
-    acounts = post[2]
-    
-    commentsE = wb.create_sheet('COMMENTS '+username)
-    commentsE.append(('POST', 'TYPE', 'ID', 'DATE', 'TEXT', 'OWNER ID',  'OWNER USERNAME', 'LIKES'))
-    for postS in posts:
-        logging.info(f'getting comments from {username} post {postS[0]}')
-        comment = con.comments(username, wb, postS[0], acounts)
-        wb = comment[0]
-        acounts = comment[1]
-        sleep(30)
+    if acounts != None:
+        logging.info(f'getting posts from {username}')
+        post = con.posts(username, wb, acounts)
+        wb = post[0]
+        posts = post[1]
+        acounts = post[2]
+        
+        if acounts != None:
+            commentsE = wb.create_sheet('COMMENTS '+username)
+            commentsE.append(('POST', 'TYPE', 'ID', 'DATE', 'TEXT', 'OWNER ID',  'OWNER USERNAME', 'LIKES'))
+            for postS in posts:
+                logging.info(f'getting comments from {username} post {postS[0]}')
+                comment = con.comments(username, wb, postS[0], acounts)
+                wb = comment[0]
+                acounts = comment[1]
+                if acounts != None:
+                    break
+                sleep(30)
     
     wb.save('./EXCELS/'+username+'.xlsx')
 

@@ -7,14 +7,14 @@ def getUserPassword(acounts):
     for acount in acounts:
         if acount['active'] == 1 and acount['used'] == 0:
             acountS = acount
-            break
+            return [acounts, acountS]
     
     if acountS == None:
         acounts = setAllUnussed(acounts)
         for acount in acounts:
             if acount['active'] == 1:
                 acountS = acount
-                break
+                return [acounts, acountS]
     
     if acountS == None:
         acounts = verifyAcounts(acounts)
