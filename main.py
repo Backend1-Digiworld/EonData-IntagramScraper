@@ -34,7 +34,7 @@ def get_allAboutUser():
     {'username': 'elmarmaria192', 'password': 'Maria123*', 'active': 1, 'used': 0},
     {'username': 'lucimurcia199', 'password': 'Lucimurcia123*', 'active': 1, 'used': 0},
     {'username': 'macarbajala', 'password': 'MaesCar123*', 'active': 1, 'used': 0}
-     ]
+    ]
     
     logging.info(f'getting perfil from {username}')
     wb = openpyxl.Workbook()
@@ -57,7 +57,7 @@ def get_allAboutUser():
                 comment = con.comments(username, wb, postS[0], acounts)
                 wb = comment[0]
                 acounts = comment[1]
-                if acounts != None:
+                if acounts == None:
                     break
                 sleep(30)
     

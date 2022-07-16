@@ -16,10 +16,12 @@ logging.basicConfig(
 
 def login(acounts):
     acountInfo = getUserPassword(acounts)
-    if acountInfo[1] == None:
-        return [None, acounts]
+    
     acount = acountInfo[1]
     acounts = acountInfo[0]
+    
+    if acount == None:
+        return [None, acounts]
     
     username = acount['username']
     password = acount ['password']
@@ -137,7 +139,7 @@ def posts(username: str, wb, acounts):
     except Exception as error:
         logging.error(error)
         logging.error(username)
-        return  [wb, [], None]
+        pass
         
 def comments(username: str, wb, post, acounts):
     loginP = login(acounts)
