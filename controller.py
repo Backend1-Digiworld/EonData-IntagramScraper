@@ -39,15 +39,8 @@ def login(acounts):
         return login(acounts)
 
 def perfil(username: str, wb, acounts):
-    loginP = login(acounts)
-    acounts = loginP[1]
-    L = loginP[0]
-    
-    if L == None:
-        return [wb, None]
-    
     perfil = wb.create_sheet('PERFIL '+username)
-    
+    L = instaloader.Instaloader()
     try:
         user = instaloader.Profile.from_username(L.context, username)
         
@@ -140,6 +133,8 @@ def posts(username: str, wb, acounts):
         logging.error(error)
         logging.error(username)
         pass
+    
+    return [wb, [], None]
         
 def comments(username: str, wb, post, acounts):
     loginP = login(acounts)
