@@ -10,14 +10,12 @@ app = typer.Typer()
 
 @app.command()
 def get_all(username: str):
-    print(username)
     saveProfile(username)
     posts = saveAllPosts(username)
     saveComentsBypost(posts)
     
 @app.command()
 def get_profile(username: str):
-    print(username)
     saveProfile(username)
 
 @app.command()
@@ -35,7 +33,6 @@ def get_commentsByUsername(username: str):
 
 @app.command()
 def get_post_commets(username: str):
-    saveProfile(username)
     posts = saveAllPosts(username)
     saveComentsBypost(posts)
 
