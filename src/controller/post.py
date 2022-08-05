@@ -5,7 +5,7 @@ from datetime import datetime, timedelta
 
 # Domains
 from src.libs.post import posts
-from src.servicios.post import createpubliacationInstagram, getPublicationByShortcode, getPublicationInstagramWeeks, updateUserInstagram, getPublicationsByInstagramUser
+from src.servicios.post import createpubliacationInstagram, getPublicationByShortcode, getPublicationInstagramDays, updateUserInstagram, getPublicationsByInstagramUser
 
 def saveAllPosts(username: str):
     try:
@@ -38,10 +38,10 @@ def getPublicationsOfUser(username):
         publications = []
     return publications
 
-def getPostWeeks(username, days):
+def getPostDays(days):
     publications = []
     try:
-        publications = getPublicationInstagramWeeks(username, days)
+        publications = getPublicationInstagramDays(days)
     except ValueError:
         print(ValueError)
         print("ERROR: [useCases:publications_twitter] - Error ocurred in find and save user information")
