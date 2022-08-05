@@ -2,7 +2,7 @@ from datetime import datetime
 
 from src.controller.post import saveAllPosts
 from src.controller.profile import saveProfile
-from src.controller.comment import saveComentsBypost, saveComentsByOnePost, saveComentsByUsername
+from src.controller.comment import saveComentsBypost, saveComentsByOnePost, saveComentsByUsername, saveComentsByDate
 
 import typer
 
@@ -30,6 +30,10 @@ def get_comments(post: str):
 @app.command()
 def get_commentsByUsername(username: str):
     saveComentsByUsername(username)
+
+@app.command()
+def get_commentsByDays():
+    saveComentsByDate()
 
 @app.command()
 def get_post_commets(username: str):

@@ -9,7 +9,7 @@ from src.settings.database import conn
 def getPublicationByShortcode(id):
     return conn.execute(InstagramPublicationsModel.select().where(InstagramPublicationsModel.c.SHORTCODE == id)).first()
 
-def getPublicationInstagramWeeks(screen_name: str, days: int):
+def getPublicationInstagramDays(days: int):
     list = []
     try:
         current_time = datetime.datetime.utcnow()
@@ -17,7 +17,6 @@ def getPublicationInstagramWeeks(screen_name: str, days: int):
         print(timeago)
         conec =  conn.execute(
             InstagramPublicationsModel.select().where(
-                InstagramPublicationsModel.c.OWNER_USERNAME == screen_name,
                 InstagramPublicationsModel.c.LOCAL_DATE > timeago
             )
         ).all()
