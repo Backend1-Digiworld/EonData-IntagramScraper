@@ -19,7 +19,7 @@ def saveAllPosts(username: str):
                     createpubliacationInstagram(media)
                     posttoComment.append(media)
                 else:
-                    if media['date_create'] <= date:
+                    if media['date_create'] >= date:
                         if media['COMMENTS'] != mediaExist['COMMENTS']:
                             posttoComment.append(media) 
                     updateUserInstagram(media, media['SHORTCODE'],)

@@ -46,12 +46,12 @@ def saveComentsByOnePost(post):
         
 def saveComentsByUsername(username: str):
     posts = getPublicationsByInstagramUser(username)
+
     try:
         for post in posts:
             date = datetime.utcnow() - timedelta(days= 5)
-            if (int(post['COMMENTS'])>0 and post['date_create'] <= date):
+            if (int(post['COMMENTS'])>0 and post['date_create'] >= date):
                 commentPosts = getCommentsByPost(post['SHORTCODE'])
-                
                 if len(commentPosts) != post['COMMENTS']:
                     allComments = comments(post['SHORTCODE']) 
                     if  allComments != 'ALL ACOUNTS DEAD':
@@ -72,7 +72,7 @@ def saveComentsByDate():
     try:
         for post in posts:
             date = datetime.utcnow() - timedelta(days= 5)
-            if (int(post['COMMENTS'])>0 and post['date_create'] <= date):
+            if (int(post['COMMENTS'])>0 and post['date_create'] >= date):
                 commentPosts = getCommentsByPost(post['SHORTCODE'])
                 
                 if len(commentPosts) != post['COMMENTS']:
