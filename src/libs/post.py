@@ -64,7 +64,7 @@ def posts(username: str):
             postsS = instaloader.Profile.from_username(loged.context, username).get_posts()
             
             SINCE = datetime.utcnow()
-            UNTIL = SINCE - timedelta(days= 60)
+            UNTIL = SINCE - timedelta(days= 120)
             
             for post in takewhile(lambda p: p.date > UNTIL, dropwhile(lambda p: p.date > SINCE, postsS)):
                 caption_hashtags = ''
