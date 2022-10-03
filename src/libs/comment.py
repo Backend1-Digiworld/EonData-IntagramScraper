@@ -72,6 +72,7 @@ def comments(post: str):
                     "TEXT": comment[2],
                     "OWNER_ID": comment[3].userid,
                     "OWNER_USERNAME": comment[3].username,
+                    "OWNER_URL": 'https://www.instagram.com/'+comment[3].username,
                     "LIKES": comment[4],
                     "date_create": datetime.utcnow()
                 }
@@ -87,6 +88,7 @@ def comments(post: str):
                         "TEXT": answer[2],
                         "OWNER_ID": answer[3].userid,
                         "OWNER_USERNAME": answer[3].username,
+                        "OWNER_URL": 'https://www.instagram.com/'+answer[3].username,
                         "LIKES": answer[4],
                         "date_create": datetime.utcnow()
                     }

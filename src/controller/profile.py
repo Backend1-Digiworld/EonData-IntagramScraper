@@ -42,6 +42,7 @@ def saveProfile(username: str):
                     "follows_count": userInfo.followers,
                     "is_private": userInfo.is_private,
                     "is_verified": userInfo.is_verified,
+                    "url": 'https://www.instagram.com/'+username,
                     'date_create': datetime.utcnow()
                 }
                 updateUserInstagram(userToSave, str(userInfo.userid))

@@ -12,6 +12,7 @@ InstagramCommentModel = Table(
     Column("TEXT", Text),
     Column("OWNER_ID", Integer),
     Column("OWNER_USERNAME", String(255)),
+    Column("OWNER_URL", String(4000)),
     Column("LIKES", Integer),
     Column("date_create", DateTime, default=datetime.utcnow()),
 )

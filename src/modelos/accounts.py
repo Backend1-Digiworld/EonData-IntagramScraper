@@ -10,6 +10,7 @@ InstagramUserModel = Table(
     Column("profile_pic_url", Text),
     Column("biography", String(255)),
     Column("external_url", String(255)),
+    Column("url", String(4000)),
     Column("follows_count", Integer),
     Column("followed_by_count", Integer),
     Column("media_count", Integer),

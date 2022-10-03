@@ -19,3 +19,4 @@ bin-release/
 
 #Enviroment Files
 venv/
+app.log
